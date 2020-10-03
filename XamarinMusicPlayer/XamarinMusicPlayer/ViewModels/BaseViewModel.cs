@@ -25,11 +25,11 @@ namespace XamarinMusicPlayer.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        private Exception exception;
-        public Exception Exception
+        private string errrorMessage;
+        public string ErrorMessage
         {
-            get => exception;
-            set => SetProperty(ref exception, value);
+            get => errrorMessage;
+            set => SetProperty(ref errrorMessage, value);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -84,8 +84,9 @@ namespace XamarinMusicPlayer.ViewModels
 
         private readonly Func<Task<IEnumerable<T>>> generator;
 
-        public BaseViewModel(Func<Task<IEnumerable<T>>> generator)
+        public BaseViewModel(string title,Func<Task<IEnumerable<T>>> generator)
         {
+            Title = title;
             this.generator = generator;
             RefreshCommand = new AsyncCommand(Process);
             RefreshCommand.ExecuteAsync();
@@ -101,9 +102,9 @@ namespace XamarinMusicPlayer.ViewModels
                     var collection = await generator().ConfigureAwait(false);
                     Collection = new ObservableCollection<T>(collection);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    Exception = e;
+                    ErrorMessage = $"Something went wrong while fetching {Title}";
                 }
                 finally
                 {

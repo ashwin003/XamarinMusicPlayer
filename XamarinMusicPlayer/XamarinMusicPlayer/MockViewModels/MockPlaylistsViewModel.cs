@@ -8,7 +8,7 @@ namespace XamarinMusicPlayer.MockViewModels
 {
     public class MockPlaylistsViewModel : BaseViewModel<Playlist>
     {
-        public MockPlaylistsViewModel() : base(() => Task.FromResult(PlaylistHelper.Playlists))
+        public MockPlaylistsViewModel() : base("Mock", () => Task.FromResult(PlaylistHelper.Playlists))
         {
         }
     }

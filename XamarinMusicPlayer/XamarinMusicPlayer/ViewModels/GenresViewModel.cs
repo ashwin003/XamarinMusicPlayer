@@ -10,9 +10,8 @@ namespace XamarinMusicPlayer.ViewModels
         {
         }
 
-        public GenresViewModel(IGenreService service) : base(() => service.GetGenresAsync())
+        public GenresViewModel(IGenreService service) : base("Genres", () => service.GetGenresAsync())
         {
-            Title = "Genres";
         }
     }
 }

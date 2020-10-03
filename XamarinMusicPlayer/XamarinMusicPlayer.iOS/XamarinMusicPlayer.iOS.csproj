@@ -66,8 +66,19 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\MPMediaAlbumExtensions.cs" />
+    <Compile Include="Extensions\MPMediaArtistExtensions.cs" />
+    <Compile Include="Extensions\MPMediaGenreExtensions.cs" />
+    <Compile Include="Extensions\MPMediaPlaylistExtensions.cs" />
+    <Compile Include="Extensions\MPMediaSongExtensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\CupertinoAlbumService.cs" />
+    <Compile Include="Services\CupertinoArtistService.cs" />
+    <Compile Include="Services\CupertinoGenreService.cs" />
+    <Compile Include="Services\CupertinoPlaylistService.cs" />
+    <Compile Include="Services\CupertinoSongService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,5 +170,111 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\featured_play_list_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\cast_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cast_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cast_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\history_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\history_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\history_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\library_music_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\library_music_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\library_music_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\more_vert_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\more_vert_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\more_vert_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\new_releases_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\new_releases_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\new_releases_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\play_circle_filled_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\play_circle_filled_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\play_circle_filled_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\radio_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\radio_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\radio_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star_black%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stars_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stars_black%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stars_black%403x.png" />
   </ItemGroup>
 </Project>

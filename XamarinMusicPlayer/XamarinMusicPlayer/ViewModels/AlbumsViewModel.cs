@@ -10,9 +10,8 @@ namespace XamarinMusicPlayer.ViewModels
         {
         }
 
-        public AlbumsViewModel(IAlbumService service) : base(() => service.GetAlbumsAsync())
+        public AlbumsViewModel(IAlbumService service) : base("Albums", () => service.GetAlbumsAsync())
         {
-            Title = "Albums";
         }
     }
 }
