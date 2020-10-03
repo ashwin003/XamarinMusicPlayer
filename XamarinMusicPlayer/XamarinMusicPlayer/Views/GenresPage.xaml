@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMusicPlayer.Views.GenresPage"
+             xmlns:vm="clr-namespace:XamarinMusicPlayer.ViewModels"
+             xmlns:widget="clr-namespace:XamarinMusicPlayer.Widgets"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             ControlTemplate="{StaticResource BasePageTemplate}"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:GenresViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <flv:FlowListView 
+            IsPullToRefreshEnabled="True"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedItem}"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            FlowColumnCount="2"
+            Margin="5"
+            SeparatorVisibility="None"
+            HasUnevenRows="True"
+            FlowItemsSource="{Binding Collection}">
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+                    <widget:GenreContentView Item="{Binding .}"></widget:GenreContentView>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+    </ContentPage.Content>
+</ContentPage>

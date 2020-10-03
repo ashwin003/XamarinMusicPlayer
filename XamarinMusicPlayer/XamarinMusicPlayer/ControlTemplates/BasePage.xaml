@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ControlTemplate xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMusicPlayer.ControlTemplates.BasePage">
+    <AbsoluteLayout>
+        <ContentPresenter AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+
+        <ContentView BackgroundColor="#222222" Opacity="0.5"
+                                AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                IsVisible="{TemplateBinding BindingContext.IsBusy}">
+        </ContentView>
+
+        <ActivityIndicator AbsoluteLayout.LayoutFlags="PositionProportional"
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                        IsRunning="{TemplateBinding BindingContext.IsBusy}"
+                        IsVisible="{TemplateBinding BindingContext.IsBusy}" />
+
+    </AbsoluteLayout>
+</ControlTemplate>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMusicPlayer.Views.PlaylistPage"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:vm="clr-namespace:XamarinMusicPlayer.ViewModels"
+             Title="{Binding Title}"
+             xmlns:mock="clr-namespace:XamarinMusicPlayer.MockViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:widget="clr-namespace:XamarinMusicPlayer.Widgets"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             ControlTemplate="{StaticResource BasePageTemplate}"
+             x:DataType="vm:PlaylistViewModel"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <vm:PlaylistViewModel />
+    </ContentPage.BindingContext>
+    <d:ContentPage.BindingContext>
+        <mock:MockPlaylistsViewModel />
+    </d:ContentPage.BindingContext>
+    <ContentPage.Content>
+        <flv:FlowListView 
+            IsPullToRefreshEnabled="True"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedItem}"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            FlowColumnCount="2"
+            Margin="5"
+            SeparatorVisibility="None"
+            HasUnevenRows="True"
+            FlowItemsSource="{Binding Collection}">
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+                    <widget:PlaylistContentView Item="{Binding .}"></widget:PlaylistContentView>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+    </ContentPage.Content>
+</ContentPage>

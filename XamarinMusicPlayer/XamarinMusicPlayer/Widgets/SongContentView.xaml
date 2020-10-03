@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:SongBaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinMusicPlayer.Widgets"
+                           xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="XamarinMusicPlayer.Widgets.SongContentView">
+    <local:SongBaseContentView.Content>
+        <pv:PancakeView 
+            BackgroundColor="White"
+            VerticalOptions="Start" 
+            IsClippedToBounds="True" 
+            Elevation="10" 
+            Margin="5">
+            <Grid 
+                BackgroundColor="White"
+                VerticalOptions="Start" 
+                HeightRequest="70">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <BoxView Grid.Column="0" WidthRequest="50" Opacity=".2" Color="Black" />
+                <ImageButton Grid.Column="1" Margin="5" VerticalOptions="Start" HorizontalOptions="End" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" Source="more_vert_white" />
+                <Label Margin="10" Grid.Column="1"  Style="{StaticResource Browse_BlackLabel}" Text="{Binding Title}" />
+            </Grid>
+        </pv:PancakeView>
+    </local:SongBaseContentView.Content>
+</local:SongBaseContentView>
