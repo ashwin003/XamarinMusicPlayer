@@ -1,4 +1,6 @@
 ﻿using AsyncAwaitBestPractices.MVVM;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -84,7 +86,7 @@ namespace XamarinMusicPlayer.ViewModels
 
         private readonly Func<Task<IEnumerable<T>>> generator;
 
-        public BaseViewModel(string title,Func<Task<IEnumerable<T>>> generator)
+        public BaseViewModel(string title, Func<Task<IEnumerable<T>>> generator)
         {
             Title = title;
             this.generator = generator;
@@ -92,8 +94,15 @@ namespace XamarinMusicPlayer.ViewModels
             RefreshCommand.ExecuteAsync();
         }
 
-        public async Task Process()
+        private async Task Process()
         {
+            var permissions = await HandlePermissions();
+            if(!permissions)
+            {
+                ErrorMessage = "Storage Access is needed to acces the media files";
+                return;
+            }
+
             if (!IsBusy)
             {
                 try
@@ -110,6 +119,18 @@ namespace XamarinMusicPlayer.ViewModels
                 {
                     IsBusy = false;
                 }
+            }
+        }
+
+        private async Task<bool> HandlePermissions()
+        {
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
+            if (status == PermissionStatus.Granted)
+                return true;
+            else
+            {
+                var requestStatus = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+                return requestStatus == PermissionStatus.Granted;
             }
         }
     }

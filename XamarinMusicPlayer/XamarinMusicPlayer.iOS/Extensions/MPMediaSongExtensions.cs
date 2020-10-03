@@ -30,7 +30,7 @@ namespace XamarinMusicPlayer.iOS.Extensions
                 Duration = (ulong)mediaItem.PlaybackDuration,
                 Uri = mediaItem.AssetURL.AbsoluteString,
                 Track = $"{mediaItem.AlbumTrackNumber}/{mediaItem.AlbumTrackCount}",
-            }
+            };
         }
     }
 }
